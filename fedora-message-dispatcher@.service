@@ -1,0 +1,13 @@
+[Unit]
+Description=Fedora Message Bus Dispatcher
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=%i
+Restart=on-failure
+EnvironmentFile=/etc/fedora-message-dispatcher/env
+ExecStart=/usr/bin/fedora-bus-listener
+
+[Install]
+WantedBy=multi-user.target

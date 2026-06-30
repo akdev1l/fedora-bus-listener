@@ -1,0 +1,19 @@
+[project]
+name = "fedora-bus-listener"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fedora-messaging",
+    "boto3",
+    "jinja2",
+]
+
+[project.scripts]
+fedora-bus-listener = "akdev.fedora.bus_listener.main:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"akdev.fedora.bus_listener" = ["*.j2"]
