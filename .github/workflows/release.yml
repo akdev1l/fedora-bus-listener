@@ -3,7 +3,7 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'fedora-bus-listener-*'
+      - '*'
 
 permissions:
   contents: write
