@@ -2,6 +2,9 @@ name: Build
 
 on:
   pull_request:
+  push:
+    branches:
+      - devel
 
 jobs:
   build:
@@ -14,8 +17,7 @@ jobs:
 
       - name: Build RPM
         run: |
-          podman build -t fedora-bus-listener-builder .
           mkdir -p build
-          podman run --rm \
+          buildah bud \
             -v ${{ github.workspace }}/build:/output \
-            fedora-bus-listener-builder
+            -t fedora-bus-listener-builder .
