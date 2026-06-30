@@ -11,6 +11,7 @@ RUN dnf install -y \
     dnf clean all
 
 WORKDIR /build
+COPY .git .git
 COPY . .
 
-RUN rpkg local --outdir /output
+RUN git tag -l && rpkg local --outdir /output

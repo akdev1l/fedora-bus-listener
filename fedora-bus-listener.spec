@@ -1,9 +1,10 @@
 Name:       {{{ git_dir_name }}}
-Version:    {{{ git_dir_version }}}
+Version:    {{{ git_version lead=1 }}}
 Release:        1%{?dist}
 Summary:        Listens to the Fedora message bus and dispatches EC2 builds on kernel updates
 
 License:        AGPLv3
+VCS:        {{{ git_dir_vcs }}}
 Source:     {{{ git_dir_pack }}}
 
 BuildArch:      noarch
@@ -41,3 +42,6 @@ install -Dm644 fedora-message-dispatcher@.service \
 %files -f %{pyproject_files}
 %{_bindir}/fedora-bus-listener
 %{_unitdir}/fedora-message-dispatcher@.service
+
+%changelog
+{{{ git_dir_changelog }}}
