@@ -9,11 +9,11 @@ dependencies = [
 ]
 
 [project.scripts]
-fedora-bus-listener = "akdev.fedora.bus_listener.main:main"
+fedora-bus-listener = "fedora_bus_listener.main:main"
 
 [build-system]
 requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.package-data]
-"akdev.fedora.bus_listener" = ["*.j2"]
+"fedora_bus_listener" = ["*.j2"]

@@ -27,7 +27,7 @@ GPG_SECRET_NAME = os.environ.get("GPG_SECRET_NAME", "")
 
 def load_userdata(kmod_name: str) -> str:
     raw = (
-        importlib.resources.files("akdev.fedora.bus_listener")
+        importlib.resources.files("fedora_bus_listener")
         .joinpath("kmod-builder-userdata.sh.j2")
         .read_text()
     )

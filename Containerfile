@@ -2,6 +2,10 @@ FROM fedora:44
 
 RUN dnf install -y \
         rpkg \
+        python3-jinja2 \
+        python3-boto3 \
+        python3-fedora-messaging \
+        systemd-rpm-macros \
         pyproject-rpm-macros \
         python3-devel && \
     dnf clean all
@@ -9,12 +13,4 @@ RUN dnf install -y \
 WORKDIR /build
 COPY . .
 
-RUN git init && \
-    git config user.email "build@localhost" && \
-    git config user.name "build" && \
-    git add . && \
-    git commit -m "build"
-
-RUN rpkg local
-
-CMD ["cp", "-r", "noarch", "/output"]
+RUN rpkg local --outdir /output
